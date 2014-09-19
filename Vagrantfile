@@ -1,0 +1,47 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+# 
+# 
+# MDW Setup
+# @author Jaroslav Kuchař
+# 
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "chef/debian-7.6"
+
+  config.vm.hostname = "mi-mdw"
+
+  config.vm.network :forwarded_port, guest: 7001, host: 7001
+
+  config.omnibus.chef_version = :latest
+
+  config.vm.provider :virtualbox do |vb|
+    vb.gui = true  
+    vb.customize ["modifyvm", :id, "--memory", "1536"]
+  end
+
+  # vagrant plugin install vagrant-vbguest
+  # vagrant plugin install vagrant-omnibus
+  
+  config.vm.provision :chef_solo do |chef|
+    chef.custom_config_path = "Vagrantfile.chef"
+    chef.cookbooks_path = "cookbooks"
+
+    # https://github.com/agileorbit-cookbooks/java
+    chef.add_recipe "java"
+
+    chef.add_recipe("mimdw")
+    chef.json = {
+      'java' => {
+        'install_flavor' => 'oracle',
+        'jdk_version' => '8',
+        'oracle' => {
+            'accept_oracle_download_terms' => true
+          }
+      }
+    }
+ 
+  end
+end
