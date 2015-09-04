@@ -1,6 +1,6 @@
 # MDW Setup
 
-Middlware and Web Services is a CTU course part of Web engineering curiculla.
+Middleware and Web Services is a CTU course part of Web engineering curiculla.
 
 This is example of setup and installation scripts for Oracle Web Logic and Oracle Service Bus. It also includes script to create new domain for single server development mode. 
 
@@ -21,8 +21,13 @@ This is example of setup and installation scripts for Oracle Web Logic and Oracl
 ## Vagrant 
 
 ```
-# start virtual server and install java + xfce + chromium
+# start virtual server and install java + xfce + chromium + Eclipse
 vagrant up
+```
+
+```
+# reload virtual server to activate GUI
+vagrant reload
 ```
 
 ```
@@ -36,7 +41,7 @@ All scripts are available in oracle_scripts. Following example is for vagrant bo
 
 
 ```
-# login to vagrant virtual server
+# login to vagrant virtual server or use GUI
 vagrant ssh
 # generate all scripts for silent installation
 cd /vagrant/oracle_scripts/
