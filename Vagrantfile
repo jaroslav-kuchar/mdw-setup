@@ -9,7 +9,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "chef/debian-7.6"
+  config.vm.box = "puphpet/debian75-x64"
 
   config.vm.hostname = "mi-mdw"
 
@@ -19,7 +19,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider :virtualbox do |vb|
     vb.gui = true  
-    vb.customize ["modifyvm", :id, "--memory", "1536"]
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+    vb.customize ["modifyvm", :id, "--vram", "128"]
   end
 
   # vagrant plugin install vagrant-vbguest
