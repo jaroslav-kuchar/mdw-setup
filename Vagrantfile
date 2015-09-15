@@ -29,20 +29,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.custom_config_path = "Vagrantfile.chef"
     chef.cookbooks_path = "cookbooks"
-
-    # https://github.com/agileorbit-cookbooks/java
-    chef.add_recipe "java"
-
-    chef.add_recipe("mimdw")
-    chef.json = {
-      'java' => {
-        'install_flavor' => 'oracle',
-        'jdk_version' => '8',
-        'oracle' => {
-            'accept_oracle_download_terms' => true
-          }
-      }
-    }
- 
+    chef.add_recipe("mimdw") 
   end
 end

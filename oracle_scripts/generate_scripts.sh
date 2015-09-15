@@ -13,7 +13,7 @@ get_abs_filename() {
 ###################################################################################################
 USER="vagrant"
 USER_GROUP="vagrant"
-JAVA="/usr/lib/jvm/default-java/"
+JAVA="/usr/lib/jvm/java-7-oracle/"
 BASE_DIR=$(pwd);
 SCRIPTS_HOME="${BASE_DIR}"
 WLS_INSTALLER=$(get_abs_filename "${BASE_DIR}/../oracle_install/wls.jar")
