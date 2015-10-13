@@ -68,9 +68,13 @@ vagrant ssh
 ```
 
 
-## Start XFCE
+## XFCE
 
-Go to the VirtualBox window:
+Go to the VirtualBox window and login:
+
+  * vagrant:vagrant
+
+If not available, go to the VirtualBox window:
 
 ```
 # login with username vagrant and password vagrant
@@ -97,3 +101,12 @@ Username: weblogic
 Password: welcome1
 Login
 ```
+
+## Eclipse configuration
+  * WebLogic Home
+    * /vagrant/oracle_mw/wlserver
+  * Java
+    * /usr/lib/jvm/java-7-oracle/
+  * Domain
+    * /vagrant/oracle_mw/user_projects/domains/base_domain 
+
